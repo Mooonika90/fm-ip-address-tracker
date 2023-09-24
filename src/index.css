@@ -110,7 +110,7 @@ form {
 	width: 30%;
 	margin-inline: auto;
 }
-= form button {
+ form button {
 	height: inherit;
 }
 button {
