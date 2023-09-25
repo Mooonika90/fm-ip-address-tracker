@@ -61,7 +61,6 @@ body {
 
 	/* width: min(100% - 2rem, 90rem); */
 	margin: 0 auto;
-	text-align: center;
 }
 
 /* main {
@@ -83,9 +82,9 @@ select {
 	--very-dark-gray: hsl(0, 0%, 17%);
 	--dark-gray: hsl(0, 0%, 59%);
 	--white: #ffffff;
-	--base-scale: calc(100vw / 75);
-	--h1-font-size: max(1em, min(1.5em, calc(var(--base-scale) * 4)));
-	--h2-font-size: max(1em, min(1.5em, calc(var(--base-scale) * 1.2)));
+	--base-scale: calc(100vw / 80);
+	--h1-font-size: max(1em, min(1.8em, calc(var(--base-scale) * 5)));
+
 	--h3-font-size: max(0.7215em, min(0.6em, calc(var(--base-scale) * 1)));
 	--padding-size: max(0.5em, min(1em, calc(var(--base-scale) * 1)));
 	--margin-size: max(0.5em, min(1em, calc(var(--base-scale) * 1)));
@@ -96,6 +95,7 @@ select {
 }
 
 h1 {
+	margin-block: 1rem;
 	font-size: var(--h1-font-size);
 	font-weight: 500;
 	line-height: 30px;
@@ -105,21 +105,31 @@ h1 {
 }
 
 form {
-	height: 2rem;
+	display: flex;
 	background-color: var(--white);
-	width: 30%;
+	width: 50%;
 	margin-inline: auto;
+	margin-bottom: 4rem;
+	border-radius: 0.9375rem;
+	overflow: hidden;
+	justify-content: space-between;
 }
- form button {
-	height: inherit;
-}
-button {
+form button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	background-color: var(--black);
 	border: none;
 	width: 2rem;
+	padding-inline: 1.8rem;
+}
+form button img {
+	display: block;
 }
 form input {
 	border: 0;
+	padding: 1rem;
+	width: 100%;
 }
 section {
 	padding-block: 1rem;
@@ -127,4 +137,40 @@ section {
 	background-position: center;
 	background-size: cover;
 	width: 100%;
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+	align-items: center;
+	position: relative;
+}
+.map {
+	height: 100vh;
+	z-index: 1;
+}
+section article {
+	position: absolute;
+	display: flex;
+	gap: 1rem;
+	background-color: var(--white);
+	bottom: -2.5rem;
+	padding: 1rem;
+	border-radius: 0.9375rem;
+	z-index: 100;
+}
+article div:not(:last-child) {
+	border-right: 1px solid #979797;
+	padding-right: 1rem;
+}
+h2 {
+	text-transform: uppercase;
+	color: var(--dark-gray);
+	font-weight: bold;
+	font-size: 0.75rem;
+	letter-spacing: 1.75px;
+	margin-bottom: 0.5rem;
+}
+h3 {
+	font-weight: 500;
+	font-size: 1.625rem;
+	text-align: left;
 }
