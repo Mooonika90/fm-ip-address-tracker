@@ -1,5 +1,5 @@
 function SearchResults({ ipAddress, isp, location, timezone }) {
-	console.log(isp);
+
 	return (
 		<article>
 			<div>

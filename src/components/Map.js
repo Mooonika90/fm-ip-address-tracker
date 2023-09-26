@@ -3,7 +3,7 @@ import L from 'leaflet';
 import locationIcon from '../assets/icon-location.svg';
 
 function Map({ coordinates }) {
-	const position = [coordinates.lat, coordinates.lng];
+	const position = [coordinates?.lat, coordinates?.lng];
 	const newIcon = new L.icon({ iconUrl: locationIcon });
 	return (
 		<MapContainer

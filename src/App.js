@@ -1,12 +1,14 @@
 import './index.css';
-
+import { IpProvider } from './context'
 import IpTracker from './components/IpTracker';
 
 function App() {
 	return (
-		<main>
-			<IpTracker />
-		</main>
+		<IpProvider>
+			<main>
+				<IpTracker />
+			</main>
+		</IpProvider>
 	);
 }
 
