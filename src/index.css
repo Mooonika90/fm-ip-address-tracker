@@ -58,15 +58,8 @@ body {
 	scroll-behavior: smooth;
 	-ms-overflow-style: none; /* for Internet Explorer, Edge */
 	scrollbar-width: none; /* for Firefox */
-
-	/* width: min(100% - 2rem, 90rem); */
 	margin: 0 auto;
 }
-
-/* main {
-	width: clamp(20rem, 90vw, 90rem);
-	margin: auto;
-} */
 
 body,
 button,
@@ -84,11 +77,6 @@ select {
 	--white: #ffffff;
 	--base-scale: calc(100vw / 80);
 	--h1-font-size: max(1em, min(1.8em, calc(var(--base-scale) * 5)));
-
-	--h3-font-size: max(0.7215em, min(0.6em, calc(var(--base-scale) * 1)));
-	--padding-size: max(0.5em, min(1em, calc(var(--base-scale) * 1)));
-	--margin-size: max(0.5em, min(1em, calc(var(--base-scale) * 1)));
-	--border-radius: max(0.5em, min(1em, calc(var(--base-scale) * 1)));
 
 	/* dynamic paddings */
 	--gap: min(1.5rem, 2vw);
@@ -108,7 +96,6 @@ form {
 	display: flex;
 	background-color: var(--white);
 	width: 90%;
-
 	margin-inline: auto;
 	margin-bottom: 4rem;
 	border-radius: 0.9375rem;
@@ -124,6 +111,10 @@ form button {
 	width: 2rem;
 	padding-inline: 1.8rem;
 	cursor: pointer;
+	transition: transform 0.5s linear;
+}
+form button:hover {
+	opacity: 0.9;
 }
 form button img {
 	display: block;
@@ -134,10 +125,11 @@ form input {
 	padding-right: 0;
 	width: 100%;
 	font-size: 0.95rem;
+	cursor: pointer;
 }
 section {
 	padding-block: 1rem;
-	background-image: url('./assets/images/pattern-bg-desktop.png');
+	background-image: url('./assets/images/pattern-bg-mobile.png');
 	background-position: center;
 	background-size: cover;
 	width: 100%;
@@ -197,6 +189,7 @@ section p {
 	}
 	section {
 		height: 19rem;
+		background-image: url('./assets/images/pattern-bg-desktop.png');
 	}
 
 	section article {
