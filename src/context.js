@@ -23,12 +23,13 @@ export function IpProvider({ children }) {
 		/^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$/gi;
 	const checkDomain =
 		/^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9](?:\.[a-zA-Z]{2,})+/;
+
 	useEffect(() => {
 		fetcherIP();
 	}, []);
 
 	function fetcherIP(input = '') {
-		fetch(`${GEOIPIFY_BASE_URL}&ipAddress=${input}`)
+		fetch(`${GEOIPIFY_BASE_URL}&ipAddress=${input}&domain=${input}`)
 			.then((res) => {
 				if (!res.ok) {
 					throw new Error('Network response was not ok');
@@ -36,6 +37,7 @@ export function IpProvider({ children }) {
 				return res.json();
 			})
 			.then((data) => {
+				console.log(data);
 				setError(false);
 				setIPAddress(data?.ip);
 				setLocation(
@@ -53,7 +55,13 @@ export function IpProvider({ children }) {
 
 	const handleClick = (e) => {
 		e.preventDefault();
-		fetcherIP(input);
+		if (input.length > 1) {
+			if (checkIpAddress.test(input) || checkDomain.test(input)) {
+				fetcherIP(input);
+			} else {
+				alert('Please enter a valid IP address or domain.');
+			}
+		}
 	};
 
 	const contextValue = {

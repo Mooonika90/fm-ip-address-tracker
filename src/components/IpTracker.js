@@ -6,7 +6,6 @@ function IpTracker() {
 	const {
 		input,
 		setInput,
-		data,
 		IPAddress,
 		location,
 		timezone,
@@ -16,14 +15,12 @@ function IpTracker() {
 		handleClick,
 	} = useIpContext();
 
-
-
 	return (
 		<>
 			<section>
 				<h1>IP Address Tracker</h1>
 
-				<form onClick={handleClick}>
+				<form>
 					<input
 						type='text'
 						name='ipaddress'
@@ -32,7 +29,7 @@ function IpTracker() {
 						placeholder='Search for any IP address or domain'
 						value={input}
 					/>
-					<button type='submit'>
+					<button type='submit' onClick={handleClick}>
 						<img src={arrow} alt='icon-arrow' />
 					</button>
 				</form>
